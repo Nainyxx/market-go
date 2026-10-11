@@ -17,7 +17,7 @@ type User struct {
 	ImageUrl string `json:"image_url"`
 	// диапазон рейтинга от 0 до 5 включительно
 	Rate       float32 `json:"rate"`
-	RatesCount int     `json:"rates_count"`
+	RatesCount int32   `json:"rates_count"`
 
 	// в копейках
 	Balance int64 `json:"balance"`
