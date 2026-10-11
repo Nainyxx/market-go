@@ -37,6 +37,7 @@ var (
 	ErrNotEnoughMoney = errors.New("not enough money on balance")
 	ErrRateInterval   = errors.New("rate value must be from 0 to 5")
 	ErrInvalidAmount  = errors.New("sum must be > 0")
+	ErrNotFound       = errors.New("user not found")
 )
 
 func now() time.Time { return time.Now().UTC() }
