@@ -32,6 +32,7 @@ var (
 	ErrBalance    = errors.New("balance error")
 
 	ErrSameName       = errors.New("name must be different")
+	ErrAlreadyExist   = errors.New("user already exist")
 	ErrSameSurname    = errors.New("surname must be different")
 	ErrSameImageUrl   = errors.New("image_url must be different")
 	ErrNotEnoughMoney = errors.New("not enough money on balance")

@@ -96,7 +96,7 @@ func (post *postgresRepo) CreateUser(ctx context.Context, newUser *models.User) 
 	if err != nil {
 		var pqErr *pq.Error
 		if errors.As(err, &pqErr) && pqErr.Code == "23505" {
-			return formatErr(fmt.Errorf("user already exist: %w", err))
+			return formatErr(fmt.Errorf("%w: %w", models.ErrAlreadyExist, err))
 		}
 		return formatErr(fmt.Errorf("failed to create user: %w", err))
 	}

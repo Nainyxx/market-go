@@ -16,6 +16,7 @@ type Config struct {
 	DBSSLMode   string
 	GRPCPort    string
 	Environment string
+	HTTPPort    string
 }
 
 func Load() *Config {
@@ -25,14 +26,15 @@ func Load() *Config {
 	}
 
 	return &Config{
-		DBHost:      getEnv("DB_HOST", "localhost"),
-		DBPort:      getEnv("DB_PORT", "5432"),
-		DBUser:      getEnv("DB_USER", "postgres"),
-		DBPassword:  getEnv("DB_PASSWORD", ""),
-		DBName:      getEnv("DB_NAME", "messenger_users"),
-		DBSSLMode:   getEnv("DB_SSLMODE", "disable"),
-		GRPCPort:    getEnv("GRPC_PORT", "50051"),
+		DBHost:     getEnv("DB_HOST", "localhost"),
+		DBPort:     getEnv("DB_PORT", "5432"),
+		DBUser:     getEnv("DB_USER", "postgres"),
+		DBPassword: getEnv("DB_PASSWORD", ""),
+		DBName:     getEnv("DB_NAME", "messenger_users"),
+		DBSSLMode:  getEnv("DB_SSLMODE", "disable"),
+		//		GRPCPort:    getEnv("GRPC_PORT", "50051"),
 		Environment: getEnv("ENVIRONMENT", "dev"),
+		HTTPPort:    getEnv("HTTPPORT", "50051"),
 	}
 }
 
