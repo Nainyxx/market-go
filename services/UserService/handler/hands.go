@@ -39,6 +39,8 @@ func writeError(c *gin.Context, err error) {
 		c.JSON(http.StatusNotFound, gin.H{"error": "user not found"})
 	case errors.Is(err, models.ErrAlreadyExist):
 		c.JSON(http.StatusConflict, gin.H{"error": "user already exists"})
+	case errors.Is(err, models.ErrUserCreate), errors.Is(err, models.ErrUserChange):
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	case errors.Is(err, service.ErrInvalidUserID):
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 	case errors.Is(err, models.ErrInvalidAmount):
